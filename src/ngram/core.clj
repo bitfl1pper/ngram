@@ -49,3 +49,12 @@
    The collection is flattened into one large collection of word tokens."
   [file]
   (drop-empty (word-tokens-in-col (read-file-by-line file))))
+
+(defn unigram-frequency
+  "Accepts a text file.
+   Returns a collection of vectors.
+   Each vector has the (word token) unigram and its frequency in the
+   document.
+   The collection is sorted from most frequent to least frequent."
+  [file]
+  (reverse (sort-by val (frequencies (wtokens-file file)))))
