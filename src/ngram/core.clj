@@ -58,3 +58,9 @@
    The collection is sorted from most frequent to least frequent."
   [file]
   (reverse (sort-by val (frequencies (wtokens-file file)))))
+
+(defn ngram
+  "Takes a collection of (sequential) tokens and an integer, n.
+   Returns all *n*grams of the collection of tokens."
+  [n col]
+  (partition n 1 col))
