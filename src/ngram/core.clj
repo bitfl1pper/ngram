@@ -33,13 +33,8 @@
    Useful when reading large texts line by line, empty strings
    show up.
 
-   NOTE: this could probably be fixed with better regex, but
-   ill finance this operation with a bit of technical debt in
-   the interest of time.
-
-   Some of these empty strings are showing up from natural
-   line breaks in the text. Some of the empty strings are showing
-   up as space from after punct. is parse out. Fix later."
+   See comment section at the bottom of the source of this
+   working draft for more info."
   [col]
   (util/drop-if "" col))
 
@@ -106,3 +101,18 @@
    file's quadgrams and the frequency at which they occur."
   [file]
   (quadgrams? (wtokens-file file)))
+
+
+
+(comment
+
+  *  'drop-empty fn
+
+       NOTE: this could probably be fixed with better regex, but
+       ill finance this operation with a bit of technical debt in
+       the interest of time.
+
+       Some of these empty strings are showing up from natural
+       line breaks in the text. Some of the empty strings are showing
+       up as space from after punct. is parse out. Fix later.
+  )
