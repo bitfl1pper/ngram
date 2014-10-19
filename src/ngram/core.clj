@@ -106,6 +106,9 @@
 
 (comment
 
+  META DOCUMENTATION - On the implementation of this code.
+                     - Possibly remove for 'final release'
+
   *  'drop-empty fn
 
        NOTE: this could probably be fixed with better regex, but
@@ -115,4 +118,4 @@
        Some of these empty strings are showing up from natural
        line breaks in the text. Some of the empty strings are showing
        up as space from after punct. is parse out. Fix later.
-  )
+)
