@@ -15,12 +15,18 @@
   (with-open [rdr (clojure.java.io/reader file)]
     (doall (line-seq rdr))))
 
+;; (defn tokens-word
+;;   "Simple tokenizer, splits strings on not words.
+;;    Accepts a string, e.g. \"This is test.\"
+;;    Returns a vector of 'word' tokens, e.g. [\"This\" \"is\" \"test\"]"
+;;   [s]
+;;   (clojure.string/split s #"\W"))
+
 (defn tokens-word
-  "Simple tokenizer, splits strings on not words.
-   Accepts a string, e.g. \"This is test.\"
-   Returns a vector of 'word' tokens, e.g. [\"This\" \"is\" \"test\"]"
+  "Simple tokenizer.
+   Splits strings on whitespace."
   [s]
-  (clojure.string/split s #"\W"))
+  (clojure.string/split s #"\s"))
 
 (defn- drop-empty
   "Helper fn, drop empty strings from a collection of strings.
