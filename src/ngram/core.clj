@@ -14,7 +14,7 @@
   [s]
   (clojure.string/split s #"\s+"))
 
-(defn- drop-empty
+(defn- drop-empty ;; needed?, see metadocs.
   "Helper fn, drop empty strings from a collection of strings."
   [col]
   (util/drop-if "" col))
@@ -70,6 +70,29 @@
 
 
 
+;;;; Skip Grams
+;;   https://en.wikipedia.org/wiki/N-gram#Skip-Gram
+;; TODO
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 (comment
 
   ;; META DOCUMENTATION - On the implementation of this code.
@@ -92,4 +115,7 @@
   ;;      Some of these empty strings are showing up from natural
   ;;      line breaks in the text. Some of the empty strings are showing
   ;;      up as space from after punct. is parse out. Fix later.
+
+  ;;      at the tiem it was easier to just write the fn, than work out
+  ;;      regex edge cases, at this point, i think the fn might be uncessary
 )
