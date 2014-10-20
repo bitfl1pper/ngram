@@ -58,30 +58,6 @@
   [n s]
   (util/seefreq (ngram n s)))
 
-(defn unigrams?
-  "Query a sequence for its unigrams. Returns a sorted list of seqs
-   unigrams and the frequency at which they occur."
-  [s]
-  (util/seefreq (ngram 1 s)))
-
-(defn bigrams?
-  "Query a sequence for its bigrams. Returns a sorted list of a seqs
-   bigrams and the frequency at which they occur."
-  [s]
-  (util/seefreq (ngram 2 s)))
-
-(defn trigrams?
-  "Query a sequence for its trigrams. Returns a sorted list of a seqs
-   trigrams and the frequency at which they occur."
-  [s]
-  (util/seefreq (ngram 3 s)))
-
-(defn quadgrams?
-  "Query a sequence for its quadgrams. Returns a sorted list of a seqs
-   quadgrams and the frequency at which they occur."
-  [s]
-  (util/seefreq (ngram 4 s)))
-
 (defn ngrams?-wt-f
   "Query a text file for its [\"word token\"] n-grams.
 
@@ -96,30 +72,6 @@
    which it occurs. The list is sorted by frequency."
   [n file]
   (util/seefreq (ngram n (wtokens-file file))))
-
-(defn unigrams?-f
-  "Query a text file for its unigrams. Returns a sorted list of a text
-   file's bigrams and the frequency at which they occur."
-  [file]
-  (unigrams? (wtokens-file file)))
-
-(defn bigrams?-f
-  "Query a text file for its bigrams. Returns a sorted list of a text
-   file's bigrams and the frequency at which they occur."
-  [file]
-  (bigrams? (wtokens-file file)))
-
-(defn trigrams?-f
-  "Query a text file for its trigrams. Returns a sorted list of a text
-   file's trigrams and the frequency at which they occur."
-  [file]
-  (trigrams? (wtokens-file file)))
-
-(defn quadgrams?-f
-  "Query a text file for its quadgrams. Returns a sorted list of a text
-   file's quadgrams and the frequency at which they occur."
-  [file]
-  (quadgrams? (wtokens-file file)))
 
 
 
