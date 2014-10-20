@@ -51,15 +51,6 @@
   [file]
   (drop-empty (word-tokens-in-col (read-file-by-line file))))
 
-(defn unigram-frequency
-  "Accepts a text file.
-   Returns a collection of vectors.
-   Each vector has the (word token) unigram and its frequency in the
-   document.
-   The collection is sorted from most frequent to least frequent."
-  [file]
-  (reverse (sort-by val (frequencies (wtokens-file file)))))
-
 (defn ngram
   "Takes a collection of (sequential) tokens and an integer, n.
    Returns all *n*grams of the collection of tokens."
@@ -89,6 +80,12 @@
    quadgrams and the frequency at which they occur."
   [s]
   (util/seefreq (ngram 4 s)))
+
+(defn unigrams?-f
+  "Query a text file for its unigrams. Returns a sorted list of a text
+   file's bigrams and the frequency at which they occur."
+  [file]
+  (unigrams? (wtokens-file file)))
 
 (defn bigrams?-f
   "Query a text file for its bigrams. Returns a sorted list of a text
