@@ -26,7 +26,7 @@
   "Simple tokenizer.
    Splits strings on whitespace."
   [s]
-  (clojure.string/split s #"\s"))
+  (clojure.string/split s #"\s+"))
 
 (defn- drop-empty
   "Helper fn, drop empty strings from a collection of strings.
@@ -106,16 +106,16 @@
 
 (comment
 
-  META DOCUMENTATION - On the implementation of this code.
-                     - Possibly remove for 'final release'
+  ;; META DOCUMENTATION - On the implementation of this code.
+  ;;                    - Possibly remove for 'final release'
 
-  *  'drop-empty fn
+  ;; *  'drop-empty fn
 
-       NOTE: this could probably be fixed with better regex, but
-       ill finance this operation with a bit of technical debt in
-       the interest of time.
+  ;;      NOTE: this could probably be fixed with better regex, but
+  ;;      ill finance this operation with a bit of technical debt in
+  ;;      the interest of time.
 
-       Some of these empty strings are showing up from natural
-       line breaks in the text. Some of the empty strings are showing
-       up as space from after punct. is parse out. Fix later.
+  ;;      Some of these empty strings are showing up from natural
+  ;;      line breaks in the text. Some of the empty strings are showing
+  ;;      up as space from after punct. is parse out. Fix later.
 )
