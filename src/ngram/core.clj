@@ -15,12 +15,7 @@
   (clojure.string/split s #"\s+"))
 
 (defn- drop-empty
-  "Helper fn, drop empty strings from a collection of strings.
-   Useful when reading large texts line by line, empty strings
-   show up.
-
-   See comment section at the bottom of the source of this
-   working draft for more info."
+  "Helper fn, drop empty strings from a collection of strings."
   [col]
   (util/drop-if "" col))
 
@@ -58,7 +53,7 @@
   [n s]
   (util/seefreq (ngram n s)))
 
-(defn ngrams?-wt-f
+(defn ngrams?-wt-f    ;; rename this
   "Query a text file for its [\"word token\"] n-grams.
 
    Accepts n, an integer, denoting the value of n, for the desired
