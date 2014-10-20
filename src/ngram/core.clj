@@ -82,6 +82,21 @@
   [s]
   (util/seefreq (ngram 4 s)))
 
+(defn ngrams?-wt-f
+  "Query a text file for its [\"word token\"] n-grams.
+
+   Accepts n, an integer, denoting the value of n, for the desired
+   length of the n-gram. e.g. n = 2 for bigram, n = 3 for trigram.
+
+   Accepts file, a textfile, denoting the text file that will be
+   tokenized by [\"word tokens\"] from which n-grams will be extracted.
+
+   Returns a sorted list of the n-grams of s. The list is a collection
+   of vectors, each vector contains an n-gram and the frequency at
+   which it occurs. The list is sorted by frequency."
+  [n file]
+  (util/seefreq (ngram n (wtokens-file file))))
+
 (defn unigrams?-f
   "Query a text file for its unigrams. Returns a sorted list of a text
    file's bigrams and the frequency at which they occur."
