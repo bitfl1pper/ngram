@@ -43,6 +43,21 @@
   [n col]
   (partition n 1 col))
 
+(defn ngrams?
+  "Query a sequence for its n-grams.
+
+   Accepts n, an integer, denoting the value of n, for the desired
+   length of the n-gram. e.g. n = 2 for bigram, n = 3 for trigram.
+
+   Accepts s, a sequence, denoting the sequential collection of
+   tokens from which n-grams will be extracted.
+
+   Returns a sorted list of the n-grams of s. The list is a collection
+   of vectors, each vector contains an n-gram and the frequency at
+   which it occurs. The list is sorted by frequency."
+  [n s]
+  (util/seefreq (ngram n s)))
+
 (defn unigrams?
   "Query a sequence for its unigrams. Returns a sorted list of seqs
    unigrams and the frequency at which they occur."
