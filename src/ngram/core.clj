@@ -71,7 +71,7 @@
    of vectors, each vector contains an n-gram and the frequency at
    which it occurs. The list is sorted by frequency."
   [n file]
-  (util/seefreq (ngram n (wtokens-file file))))
+  (ngrams? n (wtokens-file file)))
 
 
 
