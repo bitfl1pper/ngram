@@ -1,26 +1,12 @@
 (ns ngram.core
   (:require [ngram.util :as util]))
 
-;; Draft 1
-
-;; Known issue, since it drops punctuation (cause: bad regex), false word tokens are created
-;; i.e. in the canonical text you have: isn't ; this will result in tokens such as isn and t
-;; 2 tokens where there should have been one. Appologies for technical debt.
-
-;; overall this is just a sampler, optimization to come
 
 (defn read-file-by-line
   "Read in text file."
   [file]
   (with-open [rdr (clojure.java.io/reader file)]
     (doall (line-seq rdr))))
-
-;; (defn tokens-word
-;;   "Simple tokenizer, splits strings on not words.
-;;    Accepts a string, e.g. \"This is test.\"
-;;    Returns a vector of 'word' tokens, e.g. [\"This\" \"is\" \"test\"]"
-;;   [s]
-;;   (clojure.string/split s #"\W"))
 
 (defn tokens-word
   "Simple tokenizer.
@@ -111,6 +97,14 @@
 
   ;; META DOCUMENTATION - On the implementation of this code.
   ;;                    - Possibly remove for 'final release'
+
+  ;; Draft 1
+
+  ;; Appologies for technical debt.
+
+  ;; overall this is just a sampler, optimization to come
+
+  ;;;;;;;;;;;;;;;;;;;;; fn notes ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
   ;; *  'drop-empty fn
 
