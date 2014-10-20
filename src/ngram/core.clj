@@ -66,6 +66,12 @@
   [n col]
   (partition n 1 col))
 
+(defn unigrams?
+  "Query a sequence for its unigrams. Returns a sorted list of seqs
+   unigrams and the frequency at which they occur."
+  [s]
+  (util/seefreq (ngram 1 s)))
+
 (defn bigrams?
   "Query a sequence for its bigrams. Returns a sorted list of a seqs
    bigrams and the frequency at which they occur."
