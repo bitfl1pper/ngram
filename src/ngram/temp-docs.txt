@@ -1,17 +1,17 @@
 * 'read-file-by-line
   "Read in text file."
 
-* 'tokens-word
+* 'tokenize
  "Simple tokenizer.
    Splits strings on whitespace."
 
 * 'drop-empty
   "Helper fn, drop empty strings from a collection of strings."
 
-* 'word-tokens-in-col
+* 'tokens-in-col
   "Word tokens in each string in a collection of strings."
 
-* 'wtokens-file
+* 'tokens-in-file
   "Get the word tokens from a file.
    Read file line by line, generate seq of strings.
    Naive word tokenizer is mapped to this collection.
@@ -21,10 +21,10 @@
   "Takes a collection of (sequential) tokens and an integer, n.
    Returns all *n*grams of the collection of tokens."
 
-* 'ngram-f
+* 'ngrams-in-file
   "Same as ngrams but wtokens on files."
 
-* 'ngrams?
+* 'see-ngrams
   "Query a sequence for its n-grams.
 
    Accepts n, an integer, denoting the value of n, for the desired
@@ -37,7 +37,7 @@
    of vectors, each vector contains an n-gram and the frequency at
    which it occurs. The list is sorted by frequency."
 
-'ngrams?-wt-f
+'see-ngrams-in-file
   "Query a text file for its [\"word token\"] n-grams.
 
    Accepts n, an integer, denoting the value of n, for the desired
