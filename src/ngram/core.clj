@@ -1,7 +1,6 @@
 (ns ngram.core
   (:require [ngram.util :as util]))
 
-
 (defn read-file-by-line
   "Read in text file."
   [file]
@@ -38,6 +37,11 @@
   [n col]
   (partition n 1 col))
 
+(defn ngram-f
+  "Same as ngrams but wtokens on files."
+  [n file]
+  (partition n 1 (wtokens-file file)))
+
 (defn ngrams?
   "Query a sequence for its n-grams.
 
@@ -68,32 +72,38 @@
   [n file]
   (ngrams? n (wtokens-file file)))
 
-
-
 ;;;; Skip Grams
 ;;   https://en.wikipedia.org/wiki/N-gram#Skip-Gram
 ;; TODO
 
+;; (defn skip-gram
+;;   "Skip-grams are a generalization of n-grams in which tokens need
+;;    not be in consecutive order in the text, but may leave gaps that
+;;    are skipped over.
 
+;;    a k-skip-n-gram is a length-n subsequence where the components
+;;    occur at a distance at most k from each other
 
+;;    input text: the rain in Spain falls mainly on the plain
+;;    1-skip-2-grams:
+;;    the in, rain Spain, in falls, Spain mainly, mainly the, on plain
+;;    --- via wikipedia [remove before commit]"
+;;   )
 
+(defn skip1-2gram
+  [col]
+  (map #(vector (first %) (last %)) (ngram 3 col)))
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+(defn skip1-2gram-wt-f ;; yeah... rename this
+  [file]
+  (map #(vector (first %) (last %)) (ngram-f 3 file)))
 
 (comment
+
+  ;;; TODO
+  ;; clean up functions, expecially file type ones vs collection ones
+  ;; generalize functions, reduce fn count
+  ;; rename stuff
 
   ;; META DOCUMENTATION - On the implementation of this code.
   ;;                    - Possibly remove for 'final release'
