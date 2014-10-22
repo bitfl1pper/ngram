@@ -4,7 +4,11 @@ ngram library for clojure. This is intended to be a standalone library for now. 
 
 Very basic ngram stuff is implemented already.
 
-The next step in the roadmap is to implement skip-gram functionality.
+very very basic skip gram functionality.
+
+the next step is to revamp the tokenizer (and add more types of tokenizers)
+
+After that, I'd like to generalize / improve the ngram functions, reduce redundancy
 
 ## Usage
 
