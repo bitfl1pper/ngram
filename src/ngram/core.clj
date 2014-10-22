@@ -6,7 +6,7 @@
   (with-open [rdr (clojure.java.io/reader file)]
     (doall (line-seq rdr))))
 
-(defn tokens-word
+(defn tokenize
   [s]
   (clojure.string/split s #"\s+"))
 
@@ -14,34 +14,34 @@
   [col]
   (util/drop-if "" col))
 
-(defn word-tokens-in-col
+(defn tokens-in-col
   [col]
-  (flatten (map (partial tokens-word) col)))
+  (flatten (map (partial tokenize) col)))
 
-(defn wtokens-file
+(defn tokens-in-file
   [file]
-  (drop-empty (word-tokens-in-col (read-file-by-line file))))
+  (drop-empty (tokens-in-col (read-file-by-line file))))
 
 (defn ngram
   [n col]
   (partition n 1 col))
 
-(defn ngram-f
+(defn ngrams-in-file
   [n file]
-  (partition n 1 (wtokens-file file)))
+  (partition n 1 (tokens-in-file file)))
 
-(defn ngrams?
+(defn see-ngrams
   [n s]
   (util/seefreq (ngram n s)))
 
-(defn ngrams?-wt-f    ;; rename this
+(defn see-ngrams-in-file
   [n file]
-  (ngrams? n (wtokens-file file)))
+  (see-ngrams n (tokens-in-file file)))
 
-(defn skip1-2gram
+(defn skip1-2gram ;; rename this
   [col]
   (map #(vector (first %) (last %)) (ngram 3 col)))
 
-(defn skip1-2gram-wt-f ;; yeah... rename this
+(defn skip1-2gram-in-file ;; yeah... rename this
   [file]
-  (map #(vector (first %) (last %)) (ngram-f 3 file)))
+  (map #(vector (first %) (last %)) (ngrams-in-file 3 file)))
